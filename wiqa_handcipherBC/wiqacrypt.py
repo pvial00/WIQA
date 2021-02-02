@@ -1,4 +1,4 @@
-from wiqa_handcipher import WIQAHC
+from wiqa_handcipherBC import WIQAHCBC
 import sys, select, getpass, os, time, getopt
 
 try:
@@ -27,7 +27,7 @@ try:
 except IndexError as ier:
     key = getpass.getpass("Enter key: ")
 
-w0 = WIQAHC()
+w0 = WIQAHCBC()
 
 start = time.time()
 data = infile.read()

@@ -16,9 +16,8 @@ class WIQAHCBC:
         for char in chars:
             j = k[j]
             k[j] = (k[j] - k[c]) % 26
-            output = (k[j] - k[k[j]]) % 26
+            output = (k[j] + k[k[j]]) % 26
             sub = ((ord(char) - 65) - output) % 26
-            j = k[j]
             ctxt.append(chr(sub + 65))
             c = (c + 1) % 26
         return "".join(ctxt)
@@ -30,9 +29,8 @@ class WIQAHCBC:
         for char in chars:
             j = k[j]
             k[j] = (k[c] - k[j]) % 26
-            output = (k[j] - k[k[j]]) % 26
+            output = (k[j] + k[k[j]]) % 26
             sub = (output - (ord(char) - 65)) % 26
-            j = k[j]
             ctxt.append(chr(sub + 65))
             c = (c + 1) % 26
         return "".join(ctxt)
